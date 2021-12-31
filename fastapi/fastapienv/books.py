@@ -79,20 +79,20 @@ async def delete_book(book_name):
     del BOOKS[book_name]
     return f'Book {book_name} deleted'
 
-    # @app.get("/directions/{direction_name}")
-    # async def get_direction(direction_name: DirectionName):
-    #     if direction_name == DirectionName.north:
-    #         return {'Direction': direction_name, 'sub': 'Up'}
-    #     if direction_name == DirectionName.south:
-    #         return {'Direction': direction_name, 'sub': 'Down'}
-    #     if direction_name == DirectionName.west:
-    #         return {'Direction': direction_name, 'sub': 'Left'}
-    #     return {'Direction': direction_name, 'sub': 'Right'}
+# @app.get("/directions/{direction_name}")
+# async def get_direction(direction_name: DirectionName):
+#     if direction_name == DirectionName.north:
+#         return {'Direction': direction_name, 'sub': 'Up'}
+#     if direction_name == DirectionName.south:
+#         return {'Direction': direction_name, 'sub': 'Down'}
+#     if direction_name == DirectionName.west:
+#         return {'Direction': direction_name, 'sub': 'Left'}
+#     return {'Direction': direction_name, 'sub': 'Right'}
 
-    # @app.get("/books/mybook")
-    # async def read_favorite_book():
-    #     return {"book_title": "My favorite book"}
+# @app.get("/books/mybook")
+# async def read_favorite_book():
+#     return {"book_title": "My favorite book"}
 
-    # @app.get("/books/{book_id}")
-    # async def read_book(book_id: int):
-    #     return {"book_title": book_id}
+# @app.get("/books/{book_id}")
+# async def read_book(book_id: int):
+#     return {"book_title": book_id}
