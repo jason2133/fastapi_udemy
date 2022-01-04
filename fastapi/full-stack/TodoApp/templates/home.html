@@ -1,16 +1,16 @@
 <!-- http://127.0.0.1:8000/todos/test 들어가면 이 화면 나옴. -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> -->
     <!-- 이걸로 CSS를 연결시킨다. -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/todo/css/base.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/todo/css/base.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/todo/css/bootstrap.css') }}">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> -->
     <!-- Bootstrap 적용하기 위함. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit-no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit-no"> -->
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <title>TodoApp</title>
+    <!-- <title>TodoApp</title>
 </head>
 <body>
     <div>
@@ -28,8 +28,11 @@
                 </ui>
             </div>
         </nav>
-    </div>
+    </div> -->
 
+    <!-- layout.html이라는 파일을 템플릿 형식으로 해서 다른데다가도 다 적용한다. -->
+    {% include 'layout.html' %}
+    
     <div class='container'>
         <div class='card text-center'>
             <div class='card-header'>
@@ -82,9 +85,9 @@
     </div>
 
     <!-- JavaScript 파일 연동시킵니다. -->
-    <script src="{{ url_for('static', path='/todo/js/jsquery-slim.js') }}"></script>
+    <!-- <script src="{{ url_for('static', path='/todo/js/jsquery-slim.js') }}"></script>
     <script src="{{ url_for('static', path='/todo/js/popper.js') }}"></script>
     <script src="{{ url_for('static', path='/todo/js/bootstrap.js') }}"></script>
 
 </body>
-</html>
+</html> -->

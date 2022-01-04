@@ -1,20 +1,26 @@
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+from jose import jwt, JWTError
+from datetime import datetime, timedelta
+from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
+from starlette.requests import Request
+from database import SessionLocal, engine
+from sqlalchemy.orm import Session
+from passlib.context import CryptContext
+import models
+from typing import Optional
+from pydantic import BaseModel
+from fastapi import Depends, HTTPException, status, APIRouter, Request
 import sys
 sys.path.append("..")
-
-from fastapi import Depends, HTTPException, status, APIRouter
-from pydantic import BaseModel
-from typing import Optional
-import models
-from passlib.context import CryptContext
-from sqlalchemy.orm import Session
-from database import SessionLocal, engine
-from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
-from datetime import datetime, timedelta
-from jose import jwt, JWTError
 
 
 SECRET_KEY = "KlgH6AzYDeZeGwD288to79I3vTHT8wp7"
 ALGORITHM = "HS256"
+
+# HTML을 연결해준다. templates라는 폴더 안에 home.html이라는 HTML 파일이 있으므로
+# directory='templates'라는 것을 이용해서 HTML을 서로 연결해준다.
+templates = Jinja2Templates(directory='templates')
 
 
 class CreateUser(BaseModel):
@@ -121,7 +127,18 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     return {"token": token}
 
 
-#Exceptions
+@router.get('/', response_class=HTMLResponse)
+async def authentication_page(request: Request):
+    return templates.TemplateResponse("login.html", {'request': request})
+
+
+@router.get('/register', response_class=HTMLResponse)
+async def register(request: Request):
+    return templates.TemplateResponse('register.html', {'request': request})
+
+# Exceptions
+
+
 def get_user_exception():
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -138,15 +155,3 @@ def token_exception():
         headers={"WWW-Authenticate": "Bearer"},
     )
     return token_exception_response
-
-
-
-
-
-
-
-
-
-
-
-
