@@ -54,7 +54,9 @@ async def delete_book(book_name):
     del BOOKS[book_name]
     return f'Book {book_name} deleted.'
 
-
+# 터미널에서 uvicorn을 작성하기 싫을 경우 파일 추가 main에 추가
+# if __name__ == '__main__':
+#     uvicorn.run(app, host='0.0.0.0', port=8000)
 
 
 
